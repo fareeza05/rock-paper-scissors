@@ -4,81 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>RPS SURVIVE!</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script>
 
-        let computerSelection;
-        let playerSelection;
-        let computerScore;
-        let playerScore;
+    
+    <header>Rock, Paper, Scissors</header>
 
-        function computer() {
-            let choices = ['rock', 'paper', 'scissors'];
-            let i = Math.floor(Math.random() * 3);
-            return choices[i];
-        }
-
-        function userInput() {
-            playerSelection = prompt('Pick rock paper or scissors: ', '').toLowerCase();
-            if ((playerSelection === 'rock') || (playerSelection === 'paper') || (playerSelection === 'scissors')) {
-                console.log(playRound(playerSelection, computerSelection))
-            } else {
-                alert('That is not a valid input.');
-                userInput();
-            }
-
-        }
-
-        function playRound(playerSelection, computerSelection) {
-            computerSelection = computer().toLowerCase();
-            if (playerSelection === computerSelection) {
-                return `It's a tie!\n${playerSelection.toUpperCase()} ties with ${computerSelection.toUpperCase()}\nComputer - ${computerScore} | You - ${playerScore}`; 
-                alert(`It's a tie!\n${playerSelection.toUpperCase()} ties with ${computerSelection.toUpperCase()}\nComputer - ${computerScore} | You - ${playerScore}`);
-            } else if ((computerSelection === 'rock' && playerSelection === 'scissors') || (computerSelection === 'scissors' && playerSelection === 'paper') || (computerSelection === 'paper' && playerSelection === 'rock')) {
-                computerScore ++;
-                return `You lose :(\n${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}\nComputer - ${computerScore} | You - ${playerScore}`; 
-                alert(`You lose :(\n${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}\nComputer - ${computerScore} | You - ${playerScore}`);
-            } else {
-                playerScore++
-                return `You win :D!\n${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}\nComputer - ${computerScore} | You - ${playerScore}`;
-                alert(`You win :D!\n${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}\nComputer - ${computerScore} | You - ${playerScore}`); 
-            }
-        }
+    <p id = 'message'>Make your move.</p>
+    <div class="choices">
+        <div class="choice" id = 'r'>
+            <img src ='images/Rock.png' alt ='rock'>
+        </div>
+        <div class="choice" id = 'p'>
+            <img src ='images/Paper.png' alt ='paper'>
+        </div>
+        <div class="choice" id = 's'>
+            <img src ='images/Scissors.png' alt ='scissor'>
+        </div>
+    </div>
 
 
-        function game () {
-           computerScore = 0;
-           playerScore = 0;
-           for (let i = 0; i < 5; i++) {
-            userInput();
-           } 
-           return playerScore, computerScore  
-        }
-
-        function Winner(playerScore, computerScore) {
-            if (playerScore === computerScore) {
-                return playerScore + '-' + computerScore + '\nThe game is a tie!';
-                alert(playerScore + '-' + computerScore + '\nThe game is a tie!');
-                
-            } else if (playerScore > computerScore) {
-                return playerScore + '-' + computerScore + '\nYou won the game!';
-                alert(playerScore + '-' + computerScore + '\nYou won the game!')
-                
-            } else {
-                return playerScore + '-' + computerScore + '\nYou lost the game...';
-                alert(playerScore + '-' + computerScore + '\nYou lost the game...');
-            }
-
-        }
-
-        game();
-        console.log(Winner());
+    <div class = 'announcement'>
+        <p>Paper covers Rock. You win!</p>
+    </div>
 
 
+    <div class = 'scoreboard'>
+        <div id = 'user-label' class='badge'>YOU</div>
+        <div id="machine-label" class="badge">MACHINE</div>
+        <span id = 'user-score'>0</span>:<span id ='computer score'>0</span>
 
-    </script>
+    </div>
     
 </body>
 </html>

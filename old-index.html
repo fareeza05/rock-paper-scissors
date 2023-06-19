@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let computerSelection;
+        let playerSelection;
+        let computerScore;
+        let playerScore;
+
+        function computer() {
+            let choices = ['rock', 'paper', 'scissors'];
+            let i = Math.floor(Math.random() * 3);
+            return choices[i];
+        }
+
+        function userInput() {
+            playerSelection = prompt('Pick rock paper or scissors: ', '').toLowerCase();
+            if ((playerSelection === 'rock') || (playerSelection === 'paper') || (playerSelection === 'scissors')) {
+                console.log(playRound(playerSelection, computerSelection))
+            } else {
+                console.log('That is not a valid input.');
+                userInput();
+            }
+
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            computerSelection = computer().toLowerCase();
+            if (playerSelection === computerSelection) {
+                return `It's a tie!\n${playerSelection.toUpperCase()} ties with ${computerSelection.toUpperCase()}\nComputer - ${computerScore} | You - ${playerScore}`; 
+                
+            } else if ((computerSelection === 'rock' && playerSelection === 'scissors') || (computerSelection === 'scissors' && playerSelection === 'paper') || (computerSelection === 'paper' && playerSelection === 'rock')) {
+                computerScore ++;
+                return `You lose :(\n${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}\nComputer - ${computerScore} | You - ${playerScore}`; 
+                
+            } else {
+                playerScore++
+                return `You win :D!\n${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}\nComputer - ${computerScore} | You - ${playerScore}`;
+                 
+            }
+        }
+
+
+        function game () {
+           computerScore = 0;
+           playerScore = 0;
+           for (let i = 0; i < 5; i++) {
+            userInput();
+           } 
+           return playerScore, computerScore  
+        }
+
+
+        //fix this
+        function Winner(playerScore, computerScore) {
+            if (playerScore === computerScore) {
+                return playerScore + '-' + computerScore + '\nThe game is a tie!';
+                
+                
+            } else if (playerScore > computerScore) {
+                return playerScore + '-' + computerScore + '\nYou won the game!';
+                
+                
+            } else {
+                return playerScore + '-' + computerScore + '\nYou lost the game...';
+                
+            }
+
+        }
+
+        game();
+        console.log(Winner());
+
+
+
+    </script>
+    
+</body>
+</html>
