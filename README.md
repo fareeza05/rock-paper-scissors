@@ -7,7 +7,7 @@ Simple game of rock, paper, scissors where user can choose and their choice is c
 
 Made as a learning project for The Odin Project's course.
 
-Live Website : 
+Live Website : https://fareeza05.github.io/rock-paper-scissors/
 
 ## Features
 ---
@@ -17,23 +17,23 @@ Live Website :
 * Screen displays a message letting user know about the result, and also about the computer's choice.
 
 ## Future Improvements
---
+---
 * Refine the front end in order to make whole website look more cohesive, and to make user experience smoother.
 * Add more animations to the choices, and also to the image on the landing page.
 * More TBA...
 
 ## Concepts Learned
---
+---
 * Event listeners and event handling with Javascript
 * DOM Manipulation
 * setTimeout
 
 ## More concepts to learn and implement
--- 
+---
 * Cross-browser compatibility 
 * Parallax
 * Animation on DOM Manipulation
 
 ## Conclusion 
--- 
+---
 This was an extremely engaging and fun project to work on and I will definitely be revisiting it in order to make improvements the more I get into TOP course and can apply my knowledge of more complex concepts.
